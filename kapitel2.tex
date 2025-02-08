@@ -9,7 +9,7 @@
 
 \subsection{TLS}
 
-TLS stands for Transport Layer Security. It's a critical internet
+TLS stands for Transport Layer Security.\footnote{See \textit{NIST (2011)}: Glossary. \cite{nistTLS}} It's a critical internet
 security protocol that encrypts the connection between a user's computer
 and their website or service. TLS scrambles the data sent between the
 computer and the service, turning it into an unreadable code. This
@@ -17,7 +17,7 @@ prevents hackers from intercepting and stealing information (passwords,
 credit card details, personal data, etc.). TLS also verifies that the
 service is legitimate and not a fake one trying to steal information; it
 ensures that the data sent between computers and services has not been
-tampered with or altered during transmission.
+tampered with or altered during transmission.\footnote{See \textit{Internet Society (2025)}: TLS Basics. \cite{tlsBasics}}
 
 TLS is the foundation of secure online communication. Without it, data
 would be vulnerable to interception and theft. TLS helps keep online
@@ -29,7 +29,7 @@ browser, reassuring users that their connection is secure.
 TLS uses a combination of symmetric and asymmetric
 cryptography. Symmetric cryptography encrypts the data, while
 asymmetric cryptography authenticates the server and exchanges the
-symmetric encryption key.
+symmetric encryption key.\footnote{See \textit{ENTRUST (2025)}: What is TLS. \cite{whatIsTls}}
 
 TLS is an essential part of internet security. It helps to
 protect sensitive information from being intercepted and stolen. SSL was
@@ -45,7 +45,7 @@ communication.
 Mutual TLS (mTLS) is a type of authentication that requires both the
 client and the server to authenticate each other. This contrasts with
 traditional TLS, which only requires the server to authenticate itself
-to the client.
+to the client.\footnote{See \textit{Google Cloud (2025)}: Mutual TLS overview. \cite{mutualTls}}
 
 mTLS provides additional protection by ensuring that the client and the
 server are who they claim to be. This can help prevent man-in-the-middle
@@ -73,7 +73,7 @@ modeled around a business domain. It can be compared to a bustling city
 comprising specialized districts (aka services) that work together to
 make the city function. Each district has its infrastructure, team, and
 way of doing things, but they all contribute to the overall city
-experience.
+experience.\footnote{See \textit{Google Cloud (2025)}: What Is Microservices Architecture. \cite{whatIsMS}}
 
 Each microservice is designed to perform a specific business function in
 a micro-service application. They are small enough to be developed,
@@ -114,7 +114,7 @@ and the underlying network. It is designed to make communication between
 microservices easier, more reliable, and secure and has a dedicated
 traffic management and security layer. It handles all the complexities
 of inter-service communication, allowing the application code to focus
-on business logic.
+on business logic.\footnote{See \textit{Hamilton, C. (2024)}: What is a service mesh. \cite{whatIsMesh}}
 
 A Service Mesh controls how traffic flows between services. This
 includes routing, load balancing, retries, timeouts, and fault injection
@@ -143,7 +143,7 @@ improve security and resilience, and enhance observability. However, it
 also adds complexity to the application landscape, so it's essential to
 carefully consider the trade-offs before implementing one.
 
-\subsection{Benefits of a service mesh}
+\subsection{Benefits of a Service Mesh}
 
 Microservices often need to communicate with each other, which can
 involve intricate tasks like service discovery, load balancing, and
@@ -181,7 +181,7 @@ Microservices often communicate over a network, making them vulnerable
 to interception and eavesdropping. mTLS enforces a ``zero trust'' model,
 where every service must authenticate itself regardless of its location
 within the network. This is critical in a microservice environment where
-services might be deployed across different environments or clouds.
+services might be deployed across different environments or clouds.\footnote{See \textit{Patil, K. (2023)}: Why Mutual TLS is critical. \cite{whyCritical}}
 
 mTLS verifies the digital certificates of the client and server to
 ensure that they are who they claim to be. This prevents unauthorized
@@ -210,11 +210,6 @@ authentication and encryption of inter-service communication. This is
 increasingly important as microservices handle increasingly sensitive
 data.
 
-When combined with a service mesh, mTLS can be managed centrally. The
-service mesh control plane handles certificate distribution, revocation,
-and policy enforcement, simplifying security operations and ensuring
-consistency across all microservices.
-
 Microservices' distributed nature increases their attack surface and
 mTLS helps secure the many communication points between services.
 Microservices are often deployed and scaled dynamically, and mTLS
@@ -236,7 +231,7 @@ easier to manage.
 Linkerd is a lightweight and straightforward service mesh designed for
 Kubernetes. It manages and secures communication between microservices,
 providing a dedicated traffic management and security layer without the
-complexity associated with service meshes.
+complexity associated with service meshes.\footnote{See \textit{Linkerd (2025)}: Why Linkerd. \cite{linkerD}}
 
 Linkerd's minimalist design focuses on providing essential service
 mesh functionalities without unnecessary complexity. This makes
@@ -252,7 +247,7 @@ overhead to service communication.
 Linkerd enables mTLS by default, which encrypts communication between
 services and ensures that only authorized services can communicate. It
 promotes a zero-trust security model in which every service must
-authenticate itself regardless of its location within the network.
+authenticate itself regardless of its location within the network.\footnote{See \textit{Morgan, W. (2024)}: Zero trust network security in Kubernetes. \cite{zeroTrust}}
 
 Linkerd is a service mesh focusing on simplicity, performance, and
 security. It's a good option for teams that want a lightweight and
@@ -263,7 +258,7 @@ easy-to-use service mesh for their Kubernetes deployments.
 Istio is a popular, open-source service mesh that sits atop a container
 orchestration platform like Kubernetes. It helps connect, secure,
 control, and observe microservices; it is a smart infrastructure layer
-that manages communication between services.
+that manages communication between services.\footnote{See \textit{Google Cloud (2025)}: What Is Istio. \cite{whatIsIstio}}
 
 Istio offers fine-grained control over traffic flow between your
 microservices. This includes Routing, Load Balancing, Fault Injection,
@@ -272,7 +267,7 @@ and Traffic Splitting.
 Istio provides robust security features, such as Mutual TLS (mTLS),
 Authorization and Authentication. Istio also allows you to define and
 enforce policies across all microservices, such as Rate Limiting and
-Quota Management.
+Quota Management.\footnote{See \textit{Istio (2025)}: Security. \cite{istioSecurity}}
 
 Istio uses a ``sidecar'' proxy pattern. A lightweight proxy (typically
 Envoy) is deployed alongside each microservice instance. All traffic to
