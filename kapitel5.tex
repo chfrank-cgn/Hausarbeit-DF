@@ -1,0 +1,18 @@
+%
+%	Fazit
+%
+
+\pagebreak
+\section{Summary}
+
+\onehalfspacing
+
+There are two ways to enable mTLS for an application. One is refactoring the application and including mutual encryption in all API calls. The other is to use a Service Mesh, such as LinkerD or Istio, to encrypt the intra- and inter-application traffic.
+
+In this paper, we use a sample application with Istio and Linkerd and find that both provide the desired functionality. LinkerD uses less overhead than Istio.
+
+Other service meshes are available, one notable example being the Cilium service mesh.\footnote{\textit{Cilium (2025)}: Cilium Service Mesh. \cite{ciliumMesh}}
+
+If you need to encrypt application traffic, using a Service-Mesh is a viable alternative to refactoring your code.
+
+Happy Ranching!
