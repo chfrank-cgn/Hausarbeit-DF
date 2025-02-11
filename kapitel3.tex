@@ -74,6 +74,12 @@ After installation, the Linkerd control plane adds four pods to the running clus
 
 Using the Linkerd CLI, we inject our voting application with the service mesh information.
 
+\begin{verbatim}
+    kubectl get -n voting deploy -o yaml \
+    | linkerd inject - \
+    | kubectl apply -f -
+\end{verbatim}
+
 Linkerd will then add a proxy sidecar to each application pod to enable the service mesh functionality and encrypt the application traffic.
 
 \begin{figure}[H]
@@ -106,14 +112,18 @@ After installation, the Istio adds three pods to the running cluster.
 
 For Istio, we use the auto-inject feature on the application namespace to inject our voting application with the service mesh information.
 
-\begin{figure}[H]
-\centering
-\caption {Istio Auto Injection}
-\includegraphics[width=\linewidth]{images/istio-inject.png}
-\label{fig:istioInject}
-\end{figure}
+\begin{verbatim}
+    "kubernetes_namespace": {
+      "name": "voting",
+      "labels": {
+        "field.cattle.io/projectId": "p-g89q2",
+        "istio-injection": "enabled",
+        "kubernetes.io/metadata.name": "voting"
+      }
+    }
+\end{verbatim}
 
-Istio will then add a proxy sidecar to each application pod during deployment to enable the service mesh functionality and encrypt the application traffic.
+Istio will then add a proxy sidecar to each application pod during deployment in this namespace to enable the service mesh functionality and encrypt the application traffic.
 
 \begin{figure}[H]
 \centering

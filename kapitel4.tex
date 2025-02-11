@@ -70,6 +70,8 @@ Installing the two service meshes was not very time-consuming. We measured the t
 
 Istio requires several prerequisites, such as a running monitoring stack, which makes the installation significantly longer.
 
+\subsection{Enabling mTLS}
+
 The documentation made enabling mTLS for our sample application straightforward, either from the CLI or through auto-injection. We measured the time it took to enable mTLS on the installed sample application.
 
 \begin{table}[ht]
@@ -89,10 +91,31 @@ The documentation made enabling mTLS for our sample application straightforward,
 
 There was no difference in time or effort between Istio and Linkerd regarding enabling mTLS for our sample application.
 
-\subsection{Findings from Linkerd}
-
-\subsection{Findings from Istio}
-
 \subsection{Linkerd and Istio Evaluation}
 
+From our experiment, we can derive the following conclusions:
+
+\begin{itemize}
+    \item Istio uses more resources and takes longer to deploy
+    \item Istio and Linkerd offer automatic traffic encryption
+\end{itemize}
+
+Istio enables Metrics by default and includes its own observability console, Kiali.\footnote{See \textit{Istio (2025)}: Kiali. \cite{istioKiali}}
+
+Istio uses the Envoy proxy, a well-established industry standard, whereas Linkerd uses its own linkerd-2 proxy. Istio is available for Kubernetes clusters but can support virtual machines and bare metal environments. Linkerd, however, focuses on Kubernetes clusters only.
+
+Istio offers very powerful traffic management capabilities, allowing for fine-grained control over how traffic flows through the service mesh.
+
+Linkerd, on the other hand, is designed to be easier to install, configure, and manage than Istio. It is generally considered more lightweight than Istio, with a smaller performance overhead.
+
+In summary, Istio offers a robust and comprehensive solution for complex microservices architectures, while Linkerd prioritizes simplicity and ease of use for less demanding environments. For a complex microservices architecture with demanding traffic management and security requirements, Istio might be the better choice.
+
+Both service meshes handle application traffic encryption equally well.
+
 \subsection{Outlook}
+
+So far, we've only looked at application traffic encryption. Both service meshes also allow for authentication policies to restrict traffic between applications and arrive more at a zero-trust model of network security.\footnote{See \textit{Gemini (2025)}: What is Zero-Trust Networking. \cite{bardZeroTrust}} 
+
+Other options to explore would be Istio's Ingress and Egress gateways, which allow the network policies to extend across clusters and also include non-Kubernetes resources. Similarly to Istio, Linkerd offers a multi-cloud feature.
+
+Both service mesh installations that we have looked at in this paper use the sidecar injection pattern. Istio now offers with Ambient mode an option to run a service mesh without sidecars, which could be worthwhile to explore in a future paper.\footnote{See \textit{Istio (2024)}: Istio's Ambient Mode. \cite{istioAmbient}}
