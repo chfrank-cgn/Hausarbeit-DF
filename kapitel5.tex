@@ -11,11 +11,11 @@ There are two ways to enable mTLS for an application. One is refactoring the app
 
 In this paper, we used a sample application with Istio and Linkerd. We found that both service meshes provide the desired functionality and can add mTLS to an existing application without requiring application modification.
 
-LinkerD uses less overhead than Istio, but both service meshes can enhance a microservice application with mutual TLS. 
+Linkerd uses less overhead than Istio, but both service meshes can easily enhance a microservice application with mutual TLS. 
 
 Other service meshes are available, most notably the Cilium service mesh.\footnote{\textit{Cilium (2025)}: Cilium Service Mesh. \cite{ciliumMesh}}
 
-Using a service mesh is a viable alternative to refactoring the code to encrypt application traffic.
+A service mesh is a viable alternative to refactoring the code to encrypt application traffic.
 
 The Terraform plan files for the Kubernetes cluster used in this paper are on my \href{https://github.com/chfrank-cgn/Rancher/tree/master/aks-cluster}{GitHub}.
 

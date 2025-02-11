@@ -30,26 +30,69 @@ We will take the values from the Rancher cluster dashboard for each experiment i
 
 Here are the tabulated results from the experiment:
 
-\begin{table}[h]
-  \centering
+\begin{table}[ht]
   \caption{Resource Consumption}
     \begin{tabular}{| l | l | l | l | l | l |}
     \hline
     & Pods & CPU Rsvd & CPU Used & Memory Rsvd & Memory Used \\
     \hline\hline
-    Idle & 37 & 3.97 & 0.32 & 3.49 & 4.78 \\
+    Idle & 37 & 3.97 cores & 0.32 cores & 3.49 GB & 4.78 GB \\
     \hline
-    App Only & 42 & 3.97 & 0.34 & 3.49 & 5.1 \\
+    App Only & 42 & 3.97 cores & 0.34 cores & 3.49 GB & 5.1 GB \\
+    \hline
+    Linkerd & 59 & 3.97 cores & 0.61 cores & 3.49 GB & 13 GB \\
+    \hline
+    Istio & 61 & 5.93 cores & 1.02 cores & 7.14 GB & 13 GB \\
     \hline
     \hline
     \end{tabular}
   \label{tab:resUsage}
 \end{table}
 
-\subsection{Findings from LinkerD}
+\subsection{Installation Time}
+
+Installing the two service meshes was not very time-consuming. We measured the time from the beginning of the first command until after the Helm chart was finished installing the software.
+
+\begin{table}[ht]
+  \caption{Installation Time}
+    \begin{tabular}{| l | l |}
+    \hline
+    & Time \\
+    \hline\hline
+    Linkerd & 5 min \\
+    \hline
+    Istio & 20 min \\
+    \hline
+    \hline
+    \end{tabular}
+  \label{tab:installTime}
+\end{table}
+
+Istio requires several prerequisites, such as a running monitoring stack, which makes the installation significantly longer.
+
+The documentation made enabling mTLS for our sample application straightforward, either from the CLI or through auto-injection. We measured the time it took to enable mTLS on the installed sample application.
+
+\begin{table}[ht]
+  \caption{Enabling mTLS}
+    \begin{tabular}{| l | l |}
+    \hline
+    & Time \\
+    \hline\hline
+    Linkerd & 5 min \\
+    \hline
+    Istio & 5 min \\
+    \hline
+    \hline
+    \end{tabular}
+  \label{tab:enableTime}
+\end{table}
+
+There was no difference in time or effort between Istio and Linkerd regarding enabling mTLS for our sample application.
+
+\subsection{Findings from Linkerd}
 
 \subsection{Findings from Istio}
 
-\subsection{LinkerD and Istio Evaluation}
+\subsection{Linkerd and Istio Evaluation}
 
 \subsection{Outlook}

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vote
+  name: vote
+  namespace: voting
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_vote
+        name: vote
+        ports:
+        - containerPort: 80
+          name: vote
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: vote
+  name: vote
+  namespace: voting
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 80
+  selector:
+    app: vote
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vote-ui
+  namespace: voting
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+    - host: meetup2020.ddns.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: vote
+                port:
+                  number: 8080
+  
