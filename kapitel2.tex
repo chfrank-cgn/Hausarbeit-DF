@@ -151,7 +151,7 @@ handling network issues. A service mesh abstracts these complexities
 away, allowing developers to focus on the core logic of their
 microservices. It provides a uniform way for services to communicate,
 regardless of the language or framework in which they are written. This
-ensures consistency and simplifies development.
+ensures consistency and simplifies development.\footnote{See \textit{Gemini (2025)}: What are Microservices. \cite{bardLinkerd}}
 
 A service mesh can enforce mTLS, encrypting communication between
 services and verifying the identity of both the client and the server.
@@ -237,7 +237,7 @@ Linkerd's minimalist design focuses on providing essential service
 mesh functionalities without unnecessary complexity. This makes
 installing, configuring, and operating easier than other service meshes.
 Linkerd is known for its straightforward installation process and
-user-friendly CLI.
+user-friendly CLI.\footnote{See \textit{Gemini (2025)}: What is Linkerd. \cite{bardLinkerd}}
 
 Linkerd uses a purpose-built, ultra-lightweight proxy written in Rust
 and is designed to have a minimal performance impact on the
@@ -291,7 +291,6 @@ simplify the management and security of microservices. However, it also
 adds complexity to the infrastructure, so it's important to consider
 whether it's the right solution.
 
-
 \subsection{Rancher}
 
 To easily manage the service mesh installation on a Kubernetes cluster, we can turn to SUSE Rancher.
@@ -299,8 +298,6 @@ To easily manage the service mesh installation on a Kubernetes cluster, we can t
 What is Rancher? The Rancher Labs website states it is "[...] a complete software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters while providing DevOps teams with integrated tools for running containerized workloads."\footnote{\textit{Rancher Labs (2025)}: Enterprise Kubernetes Management. \cite{rancher}}
 
 Using a user-friendly GUI, Rancher provides a management platform for centrally managing multiple Kubernetes clusters in Enterprise IT. It also offers application development integration tools and robust enterprise-grade security and governance features. For operations, Rancher provides integrated solutions for logging, monitoring, and auditing, as well as many other features, such as CIS scans or a built-in service mesh.
-
-The classic Rancher GUI looks like this:
 
 \begin{figure}[H]
 \centering
