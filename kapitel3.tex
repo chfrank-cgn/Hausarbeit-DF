@@ -89,7 +89,7 @@ Linkerd will then add a proxy sidecar to each application pod to enable the serv
 \label{fig:linkerdMap}
 \end{figure}
 
-The network diagram shows that the traffic between the vote and the Redis component is now encrypted with TLS.
+The network diagram shows that the traffic between the vote and the Redis component is now encrypted with TLS; this is also true for all the other network connections within the application. The changed deployment icon indicates the added sidecar container and the new network connection inside the pod.
 
 In the default installation, only the traffic is encrypted. Linkerd offers the capability to encrypt the traffic and add authentication and authorization using Linkerd policies.\footnote{See \textit{Linkerd (2025)}: Restricting Access To Services. \cite{restrictingAccess}}
 
@@ -132,6 +132,6 @@ Istio will then add a proxy sidecar to each application pod during deployment in
 \label{fig:IstioMap}
 \end{figure}
 
-As with Linkerd, the network diagram now shows that the traffic between the vote and the Redis component is encrypted with TLS. There are a number of additional connections due to the requirement for metrics collection with Prometheus.
+As with Linkerd, the network diagram now shows that the traffic between the vote and the Redis component is encrypted with TLS. Compared to Linkerd, there are a number of additional connections due to the requirement for metrics collection with Prometheus.
 
-Istio also offers the option to authenticate connections.
+Istio, like Linkerd, also offers the option to authenticate connections.
